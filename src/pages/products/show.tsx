@@ -3,11 +3,12 @@ import { useState } from "react"
 
 
 const ShowProduct = () => {
-    const {mutate, isLoading: isUpdating} = useUpdate()
     const [name, setName] = useState<string>('')
     const [resource, setResource] = useState<string>('products')
     const [id, setId] = useState<string>('1')
+    
     const {data, isLoading: oneLoading} = useOne({resource: resource, id: id})
+    const {mutate, isLoading: isUpdating} = useUpdate()
 
     const updateName = async () => {
         await mutate({
